@@ -47,3 +47,15 @@ function makeColor(colors){
         })
     }
 }
+
+
+const button = document.querySelector("#addToCart")
+if (button != null){
+    button.addEventListener("click",(e) => {
+        const color = document.querySelector("#colors").value
+        const quantity = document.querySelector("#quantity").value
+        if (color == null || color === '' || quantity == null || quantity == 0){
+            alert("Séléctionnez la couleur et la quantité, Merci !")
+        }
+    })
+}
