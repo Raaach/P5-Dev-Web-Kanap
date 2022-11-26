@@ -1,6 +1,6 @@
 const queryString = window.location.search
 const urlParams = new URLSearchParams(queryString)
-const productId = urlParams.get('Id')
+const productId = urlParams.get('id')
 
 
 fetch('http://localhost:3000/api/products/107fb5b75607497b96722bda5b504926')              
@@ -57,6 +57,13 @@ if (button != null){                                                // si le but
         if (color == null || color === '' || quantity == null || quantity == 0){
             alert("Séléctionnez la couleur et la quantité, Merci !")// si on a pas séléctionné le prix ou la couleur
         }                                                           // alors la popup affichera le message alerte
-        localStorage.setItem(id,color)                              // on aura en local li id et la couleur
+
+        const donnee = {
+            id: id,
+            color: couleur,
+            quantity: Number(quantite)
+        }
+
+        localStorage.setItem(id,JSON.stringify(donnee))                              // on aura en local le id, la quantité et la couleur
     })
 }
