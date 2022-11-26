@@ -49,13 +49,14 @@ function makeColor(colors){
 }
 
 
-const button = document.querySelector("#addToCart")
-if (button != null){
-    button.addEventListener("click",(e) => {
+const button = document.querySelector("#addToCart")                 //le bouton panier on le relie via docuement querry
+if (button != null){                                                // si le button est non null
+    button.addEventListener("click",(e) => {                        //
         const color = document.querySelector("#colors").value
         const quantity = document.querySelector("#quantity").value
         if (color == null || color === '' || quantity == null || quantity == 0){
-            alert("Séléctionnez la couleur et la quantité, Merci !")
-        }
+            alert("Séléctionnez la couleur et la quantité, Merci !")// si on a pas séléctionné le prix ou la couleur
+        }                                                           // alors la popup affichera le message alerte
+        localStorage.setItem(id,color)                              // on aura en local li id et la couleur
     })
 }
