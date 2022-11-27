@@ -1,6 +1,10 @@
 const queryString = window.location.search
 const urlParams = new URLSearchParams(queryString)
 const productId = urlParams.get('id')
+if (id != null) {
+    let itemPrice = 0
+    let image
+}
 
 
 fetch('http://localhost:3000/api/products/107fb5b75607497b96722bda5b504926')              
@@ -56,14 +60,16 @@ if (button != null){                                                // si le but
         const quantity = document.querySelector("#quantity").value
         if (color == null || color === '' || quantity == null || quantity == 0){
             alert("Séléctionnez la couleur et la quantité, Merci !")// si on a pas séléctionné le prix ou la couleur
+            return
         }                                                           // alors la popup affichera le message alerte
 
         const donnee = {
-            id: id,
-            color: couleur,
-            quantity: Number(quantite)
-        }
+             _id: _id,                                       //       // toujours le meme problème avec l'id//
+            color: color,
+            quantity: Number(quantity)
+        }                                                   //        // message d'erreur à cause du id et aussi sur le localstorage
 
-        localStorage.setItem(id,JSON.stringify(donnee))                              // on aura en local le id, la quantité et la couleur
+        localStorage.setItem(_id, JSON.stringify(donnee))               // on aura en local le id, la quantité et la couleur
+        window.location.href = "cart.html"                              // dès le clique du bouton panier on est redirigé vers le panier
     })
 }
