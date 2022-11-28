@@ -1,13 +1,16 @@
 const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
-const productId = urlParams.get('id')
-//if (id != null) {
+const alphaId = location.search.substring(4)
+//const alphaId = queryString.slice(5)
+console.log(alphaId)
+//const urlParams = new URLSearchParams(queryString)
+//const productId = urlParams.get('id')
+////if (id != null) {
 //    let imgUrl, altText
 //
 //}
 
 
-fetch('http://localhost:3000/api/products/107fb5b75607497b96722bda5b504926')              // suite au pb avec les lignes audessus j'utilise seulement cette id='107fb5b75607497b96722bda5b504926'
+fetch('http://localhost:3000/api/products/107fb5b75607497b96722bda5b504926',{})              // suite au pb avec les lignes audessus j'utilise seulement cette id='107fb5b75607497b96722bda5b504926'
     .then((response)=> response.json())
     .then((res) => handleData(res))
     // tout ce qui suit est à l'intérieur du fetch
